@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/sweetalert.css">
+    <script src="/static/js/sweetalert.min.js"></script>
+    <script src=" /static/js/jquery-3.3.1.min.js "></script>
+</head>
+
+<style>
+    
+</style>
+
+
+<body>
+
+<form id="myform">
+
+    <div class="outer_box">
+
+    <div class="filterImg"></div>
+    <div class="login_box">
+      <h1><img src="../static/images/旅客.png" alt=""></h1>
+      <p><i class="iconfont">&#xe74f;</i><input type="text" name="username" id="username" placeholder="旅客账号"></p>
+      <p><i class="iconfont">&#xe774;</i><input type="password" name="password" id="password" placeholder="登录密码"></p>
+      <p   style="text-align: center"><i><input type="button" value="登录" onclick="sub()"></i></p>
+        <div class="chk">
+            <span><a href="/">返回</a></span><span><a  href="/user/register">没有账户？点击创立</a></span>
+        </div>
+    </div>
+  </div>
+
+
+
+</form>
+
+
+
+
+<script>
+        function sub() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById('password').value;
+
+            var res= confirm('确认要提交?');
+            if(res){
+
+                if(username ===  null || username === ''){
+                    swal({title:'提示', text:'用户名不能为空!'});
+                    return false;
+        }
+                if(password === null || password === ''){
+                    swal({title:'提示', text:'密码不能为空!'});
+                    return false;
+                }
+                  var post_data = {"is_staff":false ,"username": username, "password": password};
+
+                $.ajax({
+                    type: 'post',
+                    contentType:'application/json',
+                    datatype:'json',
+                    data: JSON.stringify(post_data),
+                    url:'http://127.0.0.1:8000/user/login',
+                    success:function (result) {
+                        if (result['code'] ===200) {
+
+                            window.localStorage.setItem('username', result['username']);
+                           alert('登陆成功!');
+
+                            window.location.href = '/token/index'
+
+
+
+                        }else{
+                             alert(result['error']);
+                             window.location.reload();
+
+
+                        }
+                    }
+                })
+
+            }else {
+                 alert('返回登录');
+                 return false;
+
+            }
+        }
+    </script>
+</body>
+</html>

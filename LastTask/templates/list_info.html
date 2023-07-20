@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<style>
+    a:hover{
+        color: red;
+        font-size: 15px;
+    }
+    .demo {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+        font-size: 20px;
+
+        }
+</style>
+<body>
+<div class="demo">
+   <h1>
+    {{ username }}的车站管理情况
+</h1>
+<p>
+    <a href="/duty/{{ username }}/add" >添加新的站点情况</a>
+</p>
+<p>
+    <a href="http://127.0.0.1:5000/token/manager_index">返回首页</a>
+</p>
+
+<table border=2>
+    <tr>
+
+    </tr>
+        <th>时间</th>
+        <th>客流量</th>
+        <th>准点率</th>
+        <th>车辆情况</th>
+        <th>员工考勤</th>
+        <th>紧急情况</th>
+        <th>环境整洁和设施维护</th>
+        <th>上级核验</th>
+        <th>修改</th>
+        <th>删除</th>
+
+    {% for duty in all_duties %}
+
+    <tr>
+
+        <th>{{ duty.create_time }}</th>
+        <th>{{ duty.flow }}</th>
+        <th>{{ duty.rate }}</th>
+        <th>{{ duty.condition }}</th>
+        <th>{{ duty.attendance }}</th>
+        <th>{{ duty.emergency }}</th>
+        <th>{{ duty.clear }}</th>
+        <th>{{ duty.response }}</th>
+        <th>    <a href="/duty/update/{{ duty.id }}">修改</a>    </th>
+        <th>    <a href="/duty/delete/{{ duty.id }}">删除</a>    </th>
+
+    </tr>
+
+
+    {% endfor %}
+
+</table>
+</div>
+
+</body>
+</html>

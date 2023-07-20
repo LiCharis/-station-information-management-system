@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/sweetalert.min.js"> </script>
+    <link rel="stylesheet" href="/static/css/sweetalert.css">
+    <link rel="stylesheet" href="/static/css/register.css">
+</head>
+<style>
+
+</style>
+<body>
+<form id="myform">
+    <div class="outer_box">
+    <div class="inner_box">
+      <div class="left_label"></div>
+      <div class="center_form">
+        <p class="title"><span>注册</span></p>
+        <p><input type="text" placeholder="用户名" name="username" id="username"></p>
+        <p><input type="password" placeholder="密码" name="password_1" id="password_1"></p>
+        <p><input type="password" placeholder="再次输入密码" name="password_2" id="password_2"></p>
+        <p><input type="button" value="免费获取验证码" name="SMS" id="SMS" onclick="settime(this);SendSMS() "></p>
+        <div class="chk">
+          <span><a href="">关于我们</a></span><span> <a href="/user/login">已有账户？点击登录</a></span>
+        </div>
+          <div class="signIn_btn" >
+        <input type="button" value="注册" style="color: red" onclick="sub()">
+      </div>
+      </div>
+      <div class="right_label"></div>
+
+    </div>
+  </div>
+
+</form>
+
+
+ <script>
+        function sub() {
+            var username = document.getElementById("username").value;
+            var password_1 = document.getElementById('password_1').value;
+            var password_2 = document.getElementById('password_2').value;
+
+            var res= confirm('确认要提交?');
+            if(res){
+                if(username ===  null || username === ''){
+                    swal({title:'提示', text:'用户名不能为空!'});
+                    return false;
+                }
+                if(password_1 === null || password_1 === ''){
+                    swal({title:'提示', text:'密码不能为空!'});
+                    return false;
+                }
+                if(password_2 === null || password_2 === ''){
+                    swal({title:'提示', text:'请再次填写密码!'});
+                    return false;
+                }
+
+                var post_data = {"username":username,"password_1":password_1,
+                    "password_2":password_2};
+
+                $.ajax({
+                    type:'post',
+                    contentType:'application/json',
+                    dataType:'json',
+                    data:JSON.stringify(post_data),
+                    url:'http://127.0.0.1:8000/user/register',
+                    success:function (result) {
+
+                        if(result['code'] === 200){
+                        alert('注册成功!');
+                        window.localStorage.setItem('username', result['username']);
+                        window.location.href = '/token/index';
+                    }else{
+                            alert(result['error']);
+                            window.location.reload()
+                        }
+                    }
+                })
+            }else {
+                alert('返回注册');
+                return false;
+            }
+
+        }
+
+
+var countdown=60;
+        function settime(obj) {
+
+            if (countdown === 0){
+
+                obj.removeAttribute("disabled");
+                obj.value="免费获取验证码";
+                countdown = 60;
+
+
+            }else{
+                obj.setAttribute("disabled",true);
+                obj.value="重新发送(" + countdown +")";
+                countdown--;
+                setTimeout(function () {     //该方法用于指定的毫秒数后调用函数或者计算表达式
+                    settime(obj)
+                },1000)
+            }
+
+
+        }
+
+
+
+    </script>
+
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<style>
+    a:hover{
+        color: red;
+        font-size: 15px;
+    }
+    .demo {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+        font-size: 20px;
+        }
+</style>
+<body>
+<div class="demo">
+    <h1>
+    {{ username }}的车站意见反馈情况
+</h1>
+<p>
+    <a href="/note/{{ username }}/add" >添加新的意见</a>
+</p>
+<p>
+    <a href="http://127.0.0.1:5000/token/index">返回首页</a>
+</p>
+
+<table border=2>
+    <tr>
+
+    </tr>
+        <th>标题</th>
+        <th>创建时间</th>
+        <th>修改时间</th>
+        <th>修改</th>
+        <th>删除</th>
+    {% for data in all_notes %}
+    <tr>
+
+        <th>{{ data.title }}</th>
+        <th>{{ data.create_time }}</th>
+        <th>{{ data.update_time }}</th>
+        <th>    <a href="/note/update/{{ data.id }}">修改</a>    </th>
+        <th>    <a href="/note/delete/{{ data.id }}">删除</a>    </th>
+
+    </tr>
+
+
+    {% endfor %}
+
+</table>
+</div>
+
+</body>
+</html>

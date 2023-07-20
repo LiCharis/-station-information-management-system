@@ -1,0 +1,105 @@
+ * {
+  padding: 0px;
+  margin: 0px;
+  color: #fff;
+}
+
+/* 外部容器 */
+.outer_box {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/交大鸽子.jpg");
+  background-size: 100% 100%;
+}
+
+/* 内部登录窗口 */
+.inner_box {
+  position: absolute;
+  width: 450px;
+  height:550px;
+  /* background-color: rgba(127, 255, 212, 0.5); */
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* display: flex; */
+}
+.inner_box div {
+  float: left;
+
+}
+/* 登录表单 */
+.inner_box .center_form {
+  width: 410px;
+  height: 570px;
+  background-color: rgba(134, 221, 221, 0.219);
+  box-shadow: 0px 0px 3px rgb(76, 219, 219);
+}
+.inner_box .center_form p {
+  height: 60px;
+  width: 410px;
+  text-align: center;
+}
+.title {
+  height: 50px !important;
+  line-height: 50px;
+  background-color: rgba(82, 202, 182, 0.575);
+  margin-bottom: 40px;
+}
+
+input {
+  width: 310px;
+  margin: 10px 50px 0px 40px;
+  height: 35px;
+  padding-left: 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  font-size: 15px;
+}
+/* remember me */
+.center_form .chk{
+  width: 330px;
+  height: 60px;
+  line-height: 60px;
+  margin: 10px 40px 0px 40px;
+  display: flex;
+  justify-content:space-between;
+  font-size: 14px;
+}
+.chk span input {
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+}
+
+/*两侧小三角形 */
+.inner_box .left_label,.right_label {
+  width: 0px;
+  height: 0px;
+  margin-top: 280px;
+}
+.inner_box .left_label {
+  border-top: solid 10px transparent;
+  border-right: solid 10px transparent;
+  border-bottom: solid 10px rgb(255, 255, 255);
+  border-left: solid 10px rgba(255, 255, 255, 0);
+}
+.inner_box .right_label {
+  border-top: solid 10px transparent;
+  border-right: solid 10px transparent;
+  border-bottom: solid 10px rgb(255, 255, 255);
+  border-left: solid 10px transparent;
+}
+/* 登录按钮 */
+.signIn_btn {
+  height: 50px;
+  width: 450px;
+  line-height: 50px;
+  background-color: transparent;
+  text-align: center;
+}
+.signIn_btn span {
+  font-size: 20px;
+  color:rgb(93, 182, 204);
+}

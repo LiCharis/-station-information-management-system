@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/LastTask.iml" filepath="$PROJECT_DIR$/.idea/LastTask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../LastTask-Front/.idea/LastTask-Front.iml" filepath="$PROJECT_DIR$/../LastTask-Front/.idea/LastTask-Front.iml" />
+    </modules>
+  </component>
+</project>

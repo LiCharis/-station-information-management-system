@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<style>
+    a:hover{
+        color: red;
+        font-size: 15px;
+    }
+    .demo {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+        font-size: 20px;
+        }
+</style>
+<body>
+<div class="demo">
+    <h1>
+    车站负责人信息
+</h1>
+
+<p>
+    <a href="http://127.0.0.1:5000/token/index">返回首页</a>
+</p>
+
+<table border=2>
+    <tr>
+
+    </tr>
+        <th>姓氏</th>
+        <th>名字</th>
+        <th>联系邮箱</th>
+
+    {% for user in all_users %}
+    <tr>
+
+        <th>{{ user.last_name }}</th>
+        <th>{{ user.first_name }}</th>
+        <th>{{ user.email }}</th>
+
+
+    </tr>
+
+
+    {% endfor %}
+
+</table>
+</div>
+
+</body>
+</html>

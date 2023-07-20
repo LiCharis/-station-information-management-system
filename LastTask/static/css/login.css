@@ -1,0 +1,105 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  color: #fff;
+}
+
+input {
+  border: none;
+}
+.filterImg {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://img0.baidu.com/it/u=3251556323,2706997540&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800");
+  background-size: 100% 100%;
+}
+.outer_box {
+  width: 100%;
+  position: relative;
+  height: calc(100vh);
+}
+
+/* 登录窗口 */
+.login_box {
+  width: 320px;
+  height: 400px;
+  border: 1px solid #fff;
+  background-color: rgba(189, 156, 156, 0.233);
+  border-radius: 10px;
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 用户头像 */
+.login_box h1 {
+  width: 100%;
+  height: 112px;
+  margin: 34px 0px;
+  text-align: center;
+}
+.login_box h1 img{
+  width: 90px;
+  height: 90px;
+  border-radius: 55px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px #fff;
+  border: 1px solid #fff;
+}
+
+/* p标签公共样式 */
+.login_box p {
+  /* width: 100%; */
+  width: 260px;
+  height: 35px;
+  margin: 20px 30px;
+  line-height: 35px;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 27px;
+}
+/* 邮箱与登录密码 */
+.login_box i {
+  font-size: 20px;
+  padding-left: 5px;
+}
+input {
+  width: 200px;
+  height: 35px;
+  padding-left: 20px;
+  border: none;
+  background: none;
+}
+
+/* 登录按钮 */
+.logIn_btn {
+  color: rgb(255, 166, 181);
+  background-color: rgba(255, 255, 255, 0.863);
+}
+
+/* 注册与忘记密码 */
+.login_box div {
+  width: 260px;
+  font-size: 12px;
+  margin: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+    .center_form .chk{
+  width: 330px;
+  height: 60px;
+  line-height: 60px;
+  margin: 10px 40px 0px 40px;
+  display: flex;
+  justify-content:space-between;
+  font-size: 14px;
+}
+.chk span input {
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+}
+
+
+

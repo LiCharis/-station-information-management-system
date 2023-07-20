@@ -1,0 +1,122 @@
+a:hover{
+        color: firebrick;
+
+    }
+
+ .font{
+        font-size: 22px;
+    }
+
+
+ .demo {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+
+        }
+
+ .stars {
+      background-color: white;
+      height: 30%;
+      width:30px;
+      border-radius:50%;
+      animation-iteration-count: infinite;
+      position: absolute;
+      z-index: 2;
+    }
+
+ .star-1 {
+      margin-top: 15px;
+      margin-left: 60%;
+      animation-duration: 2s;
+      animation-name: twinkle;
+    }
+
+ .star-2 {
+      margin-top: 25px;
+      margin-left: 30%;
+      animation-duration: 1.5s;
+      animation-name: twinkle;
+    }
+
+ .star-3 {
+      margin-top: 10px;
+      margin-left: 50%;;
+      animation-duration: 1.1s;
+      animation-name: twinkle;
+
+    }
+ .star-4{
+      margin-top: 35px;
+      margin-left: 65%;
+      animation-duration: 0.8s;
+      animation-name: twinkle;
+    }
+ .star-5{
+      margin-top: 70px;
+      margin-left: 20%;
+      animation-duration: 0.5s;
+      animation-name: twinkle;
+    }
+
+ @keyframes twinkle {
+      0% {
+        transform: scale(0.1);
+        opacity: 0.5;
+      }
+      100%{
+        transform:scale(0)
+      }
+
+
+    }
+
+
+
+
+
+
+.button-3d-2{
+  position: relative;
+  background: #ecd300;
+  background: radial-gradient(hsl(54, 100%, 50%), hsl(54, 100%, 40%));
+  font-size: 1.4rem;
+  text-shadow: 0 -1px 0 #c3af07;
+  color: black;
+  border: 1px solid hsl(54, 100%, 20%);
+  border-radius: 100%;
+  height: 70px;
+  width: 70px;
+  z-index: 4;
+  outline: none;
+
+  box-shadow: inset 0 1px 0 hsl(54, 100%, 50%),
+              0 2px 0 hsl(54, 100%, 20%),
+              0 3px 0 hsl(54, 100%, 18%),
+              0 4px 0 hsl(54, 100%, 16%),
+              0 5px 0 hsl(54, 100%, 14%),
+              0 6px 0 hsl(54, 100%, 12%),
+              0 7px 0 hsl(54, 100%, 10%),
+              0 8px 0 hsl(54, 100%, 8%),
+              0 9px 0 hsl(54, 100%, 6%);
+}
+
+.button-3d-2:active{
+  ...
+  top: 2px;
+  box-shadow: inset 0 1px 0 hsl(54, 100%, 50%),
+              0 2px 0 hsl(54, 100%, 16%),
+              0 3px 0 hsl(54, 100%, 14%),
+              0 4px 0 hsl(54, 100%, 12%),
+              0 5px 0 hsl(54, 100%, 10%),
+              0 6px 0 hsl(54, 100%, 8%),
+              0 7px 0 hsl(54, 100%, 6%);
+}
+
+
+
+
+
+

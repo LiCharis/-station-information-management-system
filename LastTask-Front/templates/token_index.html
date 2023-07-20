@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="/static/css/token_index.css">
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+
+</head>
+<style>
+
+</style>
+<body>
+<div id="index"></div>
+
+<script charset="UTF-8">
+    var html_body = '';
+    var username = window.localStorage.getItem('username');
+    $.ajax({
+        type:'post',
+        url:'http://127.0.0.1:8000/index/'+ username ,
+        data:JSON.stringify({"username": username}),
+        datatype:'json',
+        contentType:'application/json',
+        success:function (result) {
+            if (result['code'] === 200 ){
+                console.log(username)
+                html_body = '<div style="background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);">';
+                html_body += '<div class="outer_box">';
+                html_body += '';
+
+                html_body += '<div class="login_box">';
+                html_body += '<h3 style="color: black" class="title">旅客信息反馈平台</h3>';
+                html_body += '<h3 style="text-align: center;color: orange">欢迎  ';
+                html_body +=  username;
+                html_body += '！</h3>';
+                html_body += '<p><i class="iconfont">&#xe773;</i><a href="http://127.0.0.1:8000/note/';
+                html_body +=  username + '/all"';
+                html_body +=  '>意见反馈</a></i></p>';
+
+                html_body += '<p><i class="iconfont">&#xe774;</i><a href="http://127.0.0.1:8000/user/logout">退出登录</a> </p>';
+                html_body += '<p class="logIn_btn">';
+                html_body += '<span class="left_line"></span>';
+                html_body += '<span class="iconfont">&#xe600;</span>';
+                html_body += '<span class="right_line"></span></p>';
+                html_body += '<div class="chk" style="text-align: center" >';
+                 html_body += '</div><div>';
+                html_body += '<span style="float: left"><a href="#">个人中心</a></span>';
+
+                html_body += '<span style="float: right"><a href="http://127.0.0.1:8000/user/info">车站负责人信息</a></span></div></div></div>';
+
+
+            $('#index').html(html_body);
+
+
+            }else{
+                alert('请您先登录!');
+                window.location.href = '/user/login'
+            }
+
+        }
+    });
+
+    function admin() {
+        window.location.href = 'http://127.0.0.1:8000/admin'
+
+    }
+
+
+    function token_introduce() {
+        window.location.href = '/token/introduce'
+
+    }
+
+    function note_all() {
+        window.location.href = '/note/all'
+
+    }
+
+
+    function logout() {
+        var res= confirm('确定要退出?');
+        if (res){
+            $.ajax({
+        type:'post',
+        url:'http://127.0.0.1:8000/user/logout',
+        data:JSON.stringify({"username": username}),
+        datatype:'json',
+        contentType:'application/json',
+        success:function (result) {
+            if (result['code'] === 200 ){
+
+                alert('退出成功!');
+                window.location.href = '/index'
+
+
+            }else{
+                alert('退出失败!');
+                window.location.reload();
+            }
+
+        }
+    })
+        }else{
+            return false;
+        }
+
+    }
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+</head>
+<style>
+    .demo {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+       background-image: linear-gradient(to top, #d5dee7 0%, #ffafbd 0%, #c9ffbf 100%);
+        text-align: center;
+         font-size: 20px;
+        }
+    a:hover{
+        color:red;
+        font-size: 15px;
+    }
+</style>
+<body>
+<div class="demo">
+    <form action="/duty/update/{{ duty_id }}" method="post">
+    <p>
+        客流量:<input type="text" name="flow" value="{{ flow }}" >
+    </p>
+
+    <p>准点率：<input type="text"  name="rate" value="{{ rate }}"></input>
+    </p>
+
+     <p>
+        车辆情况：<textarea cols="20" rows="3" name="condition">{{ condition }}</textarea>
+    </p>
+
+      <p>
+        员工考勤：<input type="text" name="attendance" value="{{ attendance }}"></input>
+    </p>
+
+     <p>
+        紧急情况：<textarea cols="20" rows="3" name="emergency">{{ emergency }}</textarea>
+    </p>
+
+     <p>
+        环境整洁和设施维护：<textarea cols="20" rows="3" name="clear">{{ clear }}</textarea>
+    </p>
+
+        <p>
+         <input type="submit" value="保存">
+     </p>
+    <p>
+        <a href="/duty/{{ username }}/all">返回列表页</a>
+    </p>
+
+</form>
+
+</div>
+
+</body>
+</html>
